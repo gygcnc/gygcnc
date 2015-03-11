@@ -10,9 +10,11 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 admin.autodiscover()
 
+import views
+
 urlpatterns = patterns('',
     url(r'^$',  # noqa
-        TemplateView.as_view(template_name='pages/home.html'),
+        views.HomeView.as_view(),
         name="home"),
     url(r'^about/$',
         TemplateView.as_view(template_name='pages/about.html'),
