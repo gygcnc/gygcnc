@@ -110,7 +110,7 @@ class Common(Configuration):
 
     # DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('postgres://localhost/gygcnc')
+    DATABASES = values.DatabaseURLValue('postgres://postgres:asd@localhost:5432/gygcnc')
     # END DATABASE CONFIGURATION
 
     # CACHING
