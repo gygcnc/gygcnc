@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Productos</h1>
+    {% for product in object_list %}
+        <h3>* {{ product }}</h3>
+        {% for gallery in product.galleries.all %}
+            {% for photo in gallery.photos.all %}
+                <img src="{{ MEDIA_URL }}{{ photo.image }}" style="height: 200px;">
+            {% endfor %}
+        {% endfor %}
+    {% empty %}
+        No hay productos
+    {% endfor %}
+{% endblock %}

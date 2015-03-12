@@ -30,6 +30,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable avatars
     url(r'^avatar/', include('avatar.urls')),
 
-    # Your stuff: custom urls go here
+    url(r'^products/', include('products.urls', namespace="products")),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
