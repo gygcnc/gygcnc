@@ -1,14 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Productos</h1>
+    <div class="page-header">
+      <h1>Productos</h1>
+    </div>
+
     {% for product in object_list %}
         <h3>* {{ product }}</h3>
-        {% for gallery in product.galleries.all %}
-            {% for photo in gallery.photos.all %}
-                <img src="{{ MEDIA_URL }}{{ photo.image }}" style="height: 200px;">
+        <p>
+            {{ product.description }}
+        </p>
+        <p>
+            <a class="btn btn-default" href="{{ product.link_to_sell }}"
+               target="_blank">
+                Comprar
+            </a>
+        </p>
+        <div class="row">
+            {% for gallery in product.galleries.all %}
+                {% for photo in gallery.photos.all %}
+                    <div class="col-sm-3">
+                        <a href="{{ MEDIA_URL }}{{ photo.image }}" data-lightbox="{{ product }}">
+                            <img src="{{ MEDIA_URL }}{{ photo.image }}" class="thumbnail img-responsive">
+                        </a>
+                    </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
+        </div>
     {% empty %}
         No hay productos
     {% endfor %}

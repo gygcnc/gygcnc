@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
     <!-- Your stuff: Third-party css libraries go here -->
+    <link href="{% static 'css/lightbox.css' %}" rel="stylesheet" />
 
     <!-- This file store project specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
@@ -32,26 +33,33 @@
   </head>
 
   <body>
-
-    <div class="header navbar navbar-inverse">
-      <div class="container">
-        <a class="navbar-brand" href="/">gygcnc</a>
-        <ul class="nav navbar-nav">
-          <li><a href="{% url 'home' %}">Inicio</a></li>
-          <li><a href="{% url 'products:list' %}">Productos</a></li>
-
-          <!--{% if request.user.is_authenticated %}
-            <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-            <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-          {% else %}
-            <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
-            <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
-          {% endif %}-->
-        </ul>
-      </div>
-    </div>
-
     <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">GYG CNC</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{% url 'home' %}">Inicio</a></li>
+              <li><a href="{% url 'products:list' %}">Productos</a></li>
+              <!--{% if request.user.is_authenticated %}
+                <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
+                <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
+              {% else %}
+                <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+                <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
+              {% endif %}-->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
       {% if messages %}
           {% for message in messages %}
@@ -78,6 +86,7 @@
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
       <!-- Your stuff: Third-party javascript libraries go here -->
+      <script src="{% static 'js/lightbox.min.js' %}"></script>
 
       <!-- place project specific Javascript in this file -->
       <script src="{% static 'js/project.js' %}"></script>
